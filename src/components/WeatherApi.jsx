@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import{ useState,useEffect } from 'react';
 import '../App.css';
+import usepetition from '../hook/usepetition';
 
 const WeatherApi = () => {
 
@@ -16,9 +17,10 @@ const WeatherApi = () => {
         "https://i.gifer.com/5yb.gif"
     ];
 
-    const [ data, setData ] = useState({});
-    const [ temp, setTemp ] = useState(0);
-    const [ isCelsius, setIsCelsius ] = useState(true);
+/*     const [ data, setData ] = useState({});
+    const [ temp, setTemp ] = useState(0); */
+/*     const [ isCelsius, setIsCelsius ] = useState(true); */
+    const {data, temp, isCelsius, convertTemp} = usepetition();
     const [background, setBackgorund] = useState();
     const [dateState, setDateState] = useState(new Date());
     useEffect(() => {
@@ -58,7 +60,7 @@ const WeatherApi = () => {
         }
     };
 
-    useEffect(()=>{
+/*     useEffect(()=>{
         const success = pos => {
             const lat = pos.coords.latitude;
             const lon = pos.coords.longitude;
@@ -79,22 +81,22 @@ const WeatherApi = () => {
             setTemp((temp - 32) * 5 / 9);
             setIsCelsius(true);
         }
-    }
+    } */
 
     console.log(data)
     return (
         <div className='weather-card' style={{color: "black"}}>
             <h1>Weather App</h1>
-            <h3 style={{color: "black"}}>{data.name}, {data.sys?.country}</h3>
+            <h3>{data.name}, {data.sys?.country}</h3>
             <div className='new-card'>
             <img src={`http://openweathermap.org/img/wn/${data.weather?.[0].icon}@2x.png`} alt="" />
             <br />
             <h3>{temp} {isCelsius ? "°C" : "°F"}</h3>
             <p>"{data.weather?.[0].description}"</p>
-            <p><i class="fa-solid fa-wind" style={{color: "black"}}></i><b style={{color: "black"}}> Wind speed: </b>{data.wind?.speed} m/s</p>
-            <p><i class="fa-solid fa-cloud" style={{color: "black"}}></i><b style={{color: "black"}}> Clouds: </b>{data.clouds?.all}%</p>
-            <p className='ppp' style={{color: "black"}}>
-            <i class="fa-solid fa-calendar-days" style={{color: "black"}}></i> 
+            <p><i class="fa-solid fa-wind"></i><b> Wind speed: </b>{data.wind?.speed} m/s</p>
+            <p><i class="fa-solid fa-cloud"></i><b> Clouds: </b>{data.clouds?.all}%</p>
+            <p className='ppp'>
+            <i class="fa-solid fa-calendar-days"></i> 
               {' '}
               {dateState.toLocaleDateString('en-GB', {
                  day: 'numeric',
@@ -102,8 +104,8 @@ const WeatherApi = () => {
                  year: 'numeric',
               })}
             </p>
-            <p className='ppp' style={{color: "black"}}>
-            <i class="fa-solid fa-clock" style={{color: "black"}}></i> 
+            <p className='ppp'>
+            <i class="fa-solid fa-clock"></i> 
              {dateState.toLocaleString('en-US', {
                 hour: 'numeric',
                 minute: 'numeric',

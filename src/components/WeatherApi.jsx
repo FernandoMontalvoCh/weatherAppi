@@ -83,7 +83,7 @@ const WeatherApi = () => {
 
     console.log(data)
     return (
-        <div className='weather-card' style={{color: "white"}}>
+        <div className='weather-card' style={{color: "black"}}>
             <h1>Weather App</h1>
             <h3 style={{color: "black"}}>{data.name}, {data.sys?.country}</h3>
             <div className='new-card'>

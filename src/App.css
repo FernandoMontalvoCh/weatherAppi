@@ -1,11 +1,11 @@
 .App {
   text-align: center;
-  background-image: url('https://images.unsplash.com/photo-1496450681664-3df85efbd29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlYXRoZXJ8ZW58MHx8MHx8&w=1000&q=80');
+/*   background-image: url('https://images.unsplash.com/photo-1496450681664-3df85efbd29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlYXRoZXJ8ZW58MHx8MHx8&w=1000&q=80');
   position: fixed;
   min-width: 100%;
   min-height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 
 .App-logo {

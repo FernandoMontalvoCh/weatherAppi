@@ -5,13 +5,58 @@ import '../App.css';
 
 const WeatherApi = () => {
 
+    const fund = [
+        "https://i.gifer.com/Lx0q.gif",
+        "https://i.gifer.com/QINK.gif",
+        "https://i.gifer.com/6Bb.gif",
+        "https://i.gifer.com/1ez9.gif",
+        "https://i.gifer.com/5yp.gif",
+        "https://i.gifer.com/7scx.gif",
+        "https://i.gifer.com/yY8.gif",
+        "https://i.gifer.com/5yb.gif"
+    ];
+
     const [ data, setData ] = useState({});
-    const [ temp, setTemp ] = useState(0)
-    const [ isCelsius, setIsCelsius ] = useState(true)
+    const [ temp, setTemp ] = useState(0);
+    const [ isCelsius, setIsCelsius ] = useState(true);
+    const [background, setBackgorund] = useState();
     const [dateState, setDateState] = useState(new Date());
     useEffect(() => {
            setInterval(() => setDateState(new Date()), 30000);
     }, []);
+
+    document.body.style = `background: url(${background})
+    no-repeat center center fixed;-webkit-background-size: cover;
+    background-size: 100% 100%;`;
+
+    useEffect(() => {
+        changeBackground(data.weather?.[0].description);
+    }, [data.weather?.[0].description]);
+
+    const changeBackground = () => {
+        let description = data.weather?.[0].description;
+        if (description === "clear sky") {
+            setBackgorund(fund[0]);
+        } else if (description === "few clouds") {
+            setBackgorund(fund[1]);
+        } else if (description === "overcast clouds") {
+            setBackgorund(fund[2])
+        } else if (description === "broken clouds") {
+            setBackgorund(fund[3])
+        } else if (description === "mist") {
+            setBackgorund[fund[4]]
+        } else if (description === "Light rain") {
+            setBackgorund(fund[5])
+        } else if (description === "scattered clouds") {
+            setBackgorund(fund[6])
+        } else if (description === "snow") {
+            setBackgorund(fund[7])
+        } else if (description === "smoke") {
+            setBackgorund(fund[4])
+        } else if (description === "moderate rain") {
+            setBackgorund(fund[5])
+        }
+    };
 
     useEffect(()=>{
         const success = pos => {

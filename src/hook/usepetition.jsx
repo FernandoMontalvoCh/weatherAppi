@@ -2,7 +2,7 @@ import React from 'react';
 import{ useState,useEffect } from 'react';
 import axios from 'axios';
 
-const usePetition = () => {
+const usepetition = () => {
 
     const [ data, setData ] = useState({});
     const [ temp, setTemp ] = useState(0);
@@ -36,4 +36,4 @@ const usePetition = () => {
     return {data, temp, isCelsius, convertTemp};
 };
 
-export default usePetition;
+export default usepetition;

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import{ useState,useEffect } from 'react';
 import '../App.css';
-import usePetition from '../hook/usePetition';
+import usepetition from '../hook/usepetition';
 
 const WeatherApi = () => {
 
@@ -20,7 +20,7 @@ const WeatherApi = () => {
 /*     const [ data, setData ] = useState({});
     const [ temp, setTemp ] = useState(0); */
 /*     const [ isCelsius, setIsCelsius ] = useState(true); */
-    const {data, temp, isCelsius, convertTemp} = usePetition();
+    const {data, temp, isCelsius, convertTemp} = usepetition();
     const [background, setBackgorund] = useState();
     const [dateState, setDateState] = useState(new Date());
     useEffect(() => {

@@ -15,7 +15,7 @@ const usepetition = () => {
                 axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a29414f4759c1ef7533f3a60dc26f48e&units=metric`)
                 .then(res => {
                     setData(res.data)
-                    setTemp(res.data.main.temp)
+                    setTemp(Math.round(res.data.main.temp))
                 });
         }
         navigator.geolocation.getCurrentPosition(success);

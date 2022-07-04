@@ -2,13 +2,13 @@ import axios from 'axios';
 import React from 'react';
 import{ useState,useEffect } from 'react';
 import '../App.css';
-import usepetition from '../hook/usepetition';
+import usePetition from '../hook/usePetition';
 
 const WeatherApi = () => {
 
-    const fund = [
+    const backg = [
         "https://i.gifer.com/Lx0q.gif",
-        "https://i.gifer.com/QINK.gif",
+        "https://i.gifer.com/7RtV.gif",
         "https://i.gifer.com/6Bb.gif",
         "https://i.gifer.com/1ez9.gif",
         "https://i.gifer.com/5yp.gif",
@@ -20,7 +20,7 @@ const WeatherApi = () => {
 /*     const [ data, setData ] = useState({});
     const [ temp, setTemp ] = useState(0); */
 /*     const [ isCelsius, setIsCelsius ] = useState(true); */
-    const {data, temp, isCelsius, convertTemp} = usepetition();
+    const {data, temp, isCelsius, convertTemp} = usePetition();
     const [background, setBackgorund] = useState();
     const [dateState, setDateState] = useState(new Date());
     useEffect(() => {
@@ -38,25 +38,25 @@ const WeatherApi = () => {
     const changeBackground = () => {
         let description = data.weather?.[0].description;
         if (description === "clear sky") {
-            setBackgorund(fund[0]);
+            setBackgorund(backg[0]);
         } else if (description === "few clouds") {
-            setBackgorund(fund[1]);
+            setBackgorund(backg[1]);
         } else if (description === "overcast clouds") {
-            setBackgorund(fund[2])
+            setBackgorund(backg[2])
         } else if (description === "broken clouds") {
-            setBackgorund(fund[3])
+            setBackgorund(backg[3])
         } else if (description === "mist") {
-            setBackgorund[fund[4]]
+            setBackgorund[backg[4]]
         } else if (description === "Light rain") {
-            setBackgorund(fund[5])
+            setBackgorund(backg[5])
         } else if (description === "scattered clouds") {
-            setBackgorund(fund[6])
+            setBackgorund(backg[6])
         } else if (description === "snow") {
-            setBackgorund(fund[7])
+            setBackgorund(backg[7])
         } else if (description === "smoke") {
-            setBackgorund(fund[4])
+            setBackgorund(backg[4])
         } else if (description === "moderate rain") {
-            setBackgorund(fund[5])
+            setBackgorund(backg[5])
         }
     };
 
@@ -91,11 +91,11 @@ const WeatherApi = () => {
             <div className='new-card'>
             <img src={`http://openweathermap.org/img/wn/${data.weather?.[0].icon}@2x.png`} alt="" />
             <br />
-            <h3>{temp} {isCelsius ? "°C" : "°F"}</h3>
-            <p>"{data.weather?.[0].description}"</p>
-            <p><i class="fa-solid fa-wind"></i><b> Wind speed: </b>{data.wind?.speed} m/s</p>
-            <p><i class="fa-solid fa-cloud"></i><b> Clouds: </b>{data.clouds?.all}%</p>
-            <p className='ppp'>
+            <h3 className='mod'>{temp} {isCelsius ? "°C" : "°F"}</h3>
+            <p className='mod'>"{data.weather?.[0].description}"</p>
+            <p className='mod'><i class="fa-solid fa-wind"></i><b> Wind speed: </b>{data.wind?.speed} m/s</p>
+            <p className='mod'><i class="fa-solid fa-cloud"></i><b> Clouds: </b>{data.clouds?.all}%</p>
+            <p className='ppp mod'>
             <i class="fa-solid fa-calendar-days"></i> 
               {' '}
               {dateState.toLocaleDateString('en-GB', {
@@ -104,7 +104,7 @@ const WeatherApi = () => {
                  year: 'numeric',
               })}
             </p>
-            <p className='ppp'>
+            <p className='ppp mod'>
             <i class="fa-solid fa-clock"></i> 
              {dateState.toLocaleString('en-US', {
                 hour: 'numeric',
@@ -112,6 +112,7 @@ const WeatherApi = () => {
                 hour12: true,
             })}
             </p>
+            <br />
             <button className="convert-button" onClick={convertTemp}>{isCelsius ? "Convert to °F" : "Convert to °C"}</button>
             </div>
             

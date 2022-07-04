@@ -2,7 +2,7 @@ import React from 'react';
 import{ useState,useEffect } from 'react';
 import axios from 'axios';
 
-const usepetition = () => {
+const usePetition = () => {
 
     const [ data, setData ] = useState({});
     const [ temp, setTemp ] = useState(0);
@@ -21,6 +21,8 @@ const usepetition = () => {
         navigator.geolocation.getCurrentPosition(success);
     }, []);
 
+
+
     const convertTemp = () => {
         if(isCelsius){
             setTemp((temp * 9 / 5) + 32);
@@ -30,7 +32,8 @@ const usepetition = () => {
             setIsCelsius(true);
         }
     }
+
     return {data, temp, isCelsius, convertTemp};
 };
 
-export default usepetition;
+export default usePetition;

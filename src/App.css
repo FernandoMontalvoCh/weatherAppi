@@ -61,7 +61,7 @@ button {
 }
 
 .convert-button {
-  background: whitesmoke;
+  background: #f0fff0;
   border: none;
   border-radius: 2rem;
   cursor: pointer;
@@ -73,4 +73,13 @@ button {
 
 .h1-loading {
   margin-top: 50%;
+}
+
+.mod {
+  background: #7fffd4;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  margin-left: 4.5rem;
 }

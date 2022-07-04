@@ -6,9 +6,10 @@ import './App.css'
 function App() {
 
 
+
   return (
     <div className="App">
-      <Suspense fallback={<h1 className='h1-loading'>Cargando ... </h1>}>
+      <Suspense delayMs={5000} fallback={<h1 className='h1-loading'>Cargando ... </h1>}>
       <WeatherApi />
       </Suspense>
     </div>

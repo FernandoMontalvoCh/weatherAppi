@@ -15,7 +15,8 @@ const WeatherApi = () => {
         "https://i.gifer.com/7scx.gif",
         "https://i.gifer.com/yY8.gif",
         "https://i.gifer.com/5yb.gif",
-        "https://i.gifer.com/4CYX.gif"
+        "https://i.gifer.com/4CYX.gif",
+        "https://i.gifer.com/9Nos.gif"
     ];
 
 /*     const [ data, setData ] = useState({});
@@ -60,6 +61,8 @@ const WeatherApi = () => {
             setBackgorund(backg[5])
         } else if (description === "heavy intensity rain"){
             setBackgorund(backg[8])
+        } else if (description === "thunderstorm"){
+            setBackgorund(backg[9])
         }
     };
 

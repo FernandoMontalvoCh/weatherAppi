@@ -2,7 +2,6 @@ import React from 'react';
 import usepetition from './hook/usepetition.jsx';
 import './App.css'
 import WeatherApi from './components/WeatherApi.jsx';
-import './components/Preloader.css'
 
 
 function App() {

@@ -7,6 +7,7 @@ const usepetition = () => {
     const [ data, setData ] = useState({});
     const [ temp, setTemp ] = useState(0);
     const [ isCelsius, setIsCelsius ] = useState(true);
+    const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(()=>{
         const success = pos => {
@@ -16,7 +17,8 @@ const usepetition = () => {
                 .then(res => {
                     setData(res.data)
                     setTemp(Math.round(res.data.main.temp))
-                });
+                })
+                .finally(()=> setIsLoading(false))
         }
         navigator.geolocation.getCurrentPosition(success);
     }, []);
@@ -33,7 +35,7 @@ const usepetition = () => {
         }
     }
 
-    return {data, temp, isCelsius, convertTemp};
+    return {data, temp, isCelsius, isLoading, convertTemp};
 };
 
 export default usepetition;

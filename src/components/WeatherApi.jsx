@@ -120,7 +120,7 @@ const WeatherApi = () => {
             </p>
             <br />
             <button className="convert-button" onClick={convertTemp}>{isCelsius ? "Convert to °F" : "Convert to °C"}</button>
-            </div>
+            </div> 
             
         </div>
     );
